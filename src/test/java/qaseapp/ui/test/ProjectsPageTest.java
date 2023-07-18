@@ -8,7 +8,6 @@ import qaseapp.ui.model.User;
 import qaseapp.ui.service.LoginPageService;
 import qaseapp.ui.service.ProjectRepositoryPageService;
 import qaseapp.ui.service.ProjectsPageService;
-import qaseapp.ui.utils.Retry;
 
 public class ProjectsPageTest extends BaseTest {
     private ProjectsPageService projectsPageService;

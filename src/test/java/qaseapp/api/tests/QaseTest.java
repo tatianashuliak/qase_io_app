@@ -14,13 +14,13 @@ import static java.net.HttpURLConnection.HTTP_OK;
 
 public class QaseTest {
     @Test
-    public void getProjectTest() {
+    public void checkIsProjectExistsTest() {
         int statusCode = new ProjectAdapter().getProjects().statusCode();
         Assert.assertEquals(statusCode, HTTP_OK);
     }
 
     @Test
-    public void createProjectTest() {
+    public void checkCreatingProjectTest() {
         Project project = Project.builder()
                 .title("AQA22")
                 .code("aqa22")
@@ -30,7 +30,7 @@ public class QaseTest {
     }
 
     @Test
-    public void createSuiteTest() {
+    public void checkCreatingSuiteTest() {
         String projectCode = "AQA22";
         Suite suite = Suite.builder()
                 .title("Smoke")
@@ -41,13 +41,13 @@ public class QaseTest {
     }
 
     @Test
-    public void getAllCasesTest() {
+    public void CheckNumberOfAllCasesTest() {
         int statusCode = new CaseAdapter().getAllCases("AQA22").statusCode();
         Assert.assertEquals(statusCode, HTTP_OK);
     }
 
     @Test
-    public void createCaseTest() {
+    public void checkCreatingCaseTest() {
         TestCase testCase = TestCase.builder()
                 .title("Test case 1")
                 .build();
@@ -56,19 +56,19 @@ public class QaseTest {
     }
 
     @Test
-    public void getASpecificCaseTest() {
+    public void checkIsASpecificCaseExistsTest() {
         int statusCode = new CaseAdapter().getASpecificCase("AQA22", 1).statusCode();
         Assert.assertEquals(statusCode, HTTP_OK);
     }
 
     @Test
-    public void deleteTestCase() {
+    public void CheckDeletingTestCase() {
         int idOfDeletedCase = new CaseAdapter().delete("AQA22", 4).body().path("result.id");
         Assert.assertTrue(idOfDeletedCase !=0);
     }
 
     @Test
-    public void getAllTestSuitesTest() {
+    public void CheckNumberOfAllTestSuitesTest() {
         int statusCode = new SuiteAdapter().getAllSuites("AQA22").statusCode();
         Assert.assertEquals(statusCode, HTTP_OK);
     }
