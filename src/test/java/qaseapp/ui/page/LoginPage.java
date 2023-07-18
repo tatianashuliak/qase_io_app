@@ -1,8 +1,10 @@
 package qaseapp.ui.page;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@Log4j2
 public class LoginPage extends Page{
     @FindBy(xpath = "//input[@name='email']")
     private WebElement emailField;
@@ -19,16 +21,19 @@ public class LoginPage extends Page{
     }
 
     public LoginPage fillInEmail (String email) {
+        log.info("Enter email");
         waitVisibilityOfElement(emailField).sendKeys(email);
         return this;
     }
 
     public LoginPage fillInPassword (String password) {
+        log.info("Enter password");
         waitVisibilityOfElement(passwordField).sendKeys(password);
         return this;
     }
 
     public void clickSignInButton() {
+        log.info("Click sign in button");
         waitElementToBeClickable(signInButton).click();
     }
 }

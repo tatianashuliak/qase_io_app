@@ -8,6 +8,7 @@ import qaseapp.ui.model.User;
 import qaseapp.ui.service.LoginPageService;
 import qaseapp.ui.service.ProjectRepositoryPageService;
 import qaseapp.ui.service.ProjectsPageService;
+import qaseapp.ui.utils.Retry;
 
 public class ProjectsPageTest extends BaseTest {
     private ProjectsPageService projectsPageService;
@@ -20,7 +21,7 @@ public class ProjectsPageTest extends BaseTest {
     }
 
     @Test
-    public void createNewProjectTest() {
+    public void checkIsNewProjectCreatedTest() {
         User user = User.builder().email("tatjananikolaevich23041997@gmail.com").password("23041997nik").build();
        projectsPageService = loginPageService.login(user);
         Project project = Project.builder().projectName("Test").projectCode("Test").build();

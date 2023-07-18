@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import qaseapp.ui.model.User;
 import qaseapp.ui.service.LoginPageService;
 import qaseapp.ui.service.ProjectsPageService;
+import qaseapp.ui.utils.Retry;
 
 public class LoginPageTest extends BaseTest{
     private LoginPageService loginPageService;
@@ -17,7 +18,7 @@ public class LoginPageTest extends BaseTest{
 
     @Test
     public void loginTest() {
-        User user = User.builder().email("tatjananikolaevich23041997@gmail.com").password("23041997nik").build();
+        User user = User.builder().email(System.getProperty("email")).password(System.getProperty("password")).build();
         ProjectsPageService projectsPageService = loginPageService.login(user);
         boolean isActualNameOfProjectsPageSectionDisplayed = projectsPageService.isActualNameOfProjectsPageSectionDisplayed();
         boolean isExpectedNameOfProjectsPageSectionDisplayed = true;

@@ -17,4 +17,9 @@ public class ProjectsPageService {
                 .clickCreateProjectButton();
                 return new ProjectRepositoryPageService();
     }
+
+    public ProjectRepositoryPageService goToProjectRepositoryPage() {
+        projectsPage.clickProjectLink();
+        return new ProjectRepositoryPageService();
+    }
 }
