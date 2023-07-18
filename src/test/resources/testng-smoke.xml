@@ -4,33 +4,13 @@
     <listeners>
         <listener class-name="qaseapp.ui.utils.AnnotationTransformer"></listener>
     </listeners>
-    <test name="Login Page Test">
+    <test name="UI Tests">
         <classes>
             <class name="qaseapp.ui.test.LoginPageTest"/>
-        </classes>
-    </test>
-    <test name="Create Test Case Page Test">
-        <classes>
             <class name="qaseapp.ui.test.CreateTestCasePageTest"/>
-        </classes>
-    </test>
-    <test name="Project Repository Page Test">
-        <classes>
             <class name="qaseapp.ui.test.ProjectRepositoryPageTest"/>
-        </classes>
-    </test>
-    <test name="Projects Page Test">
-        <classes>
             <class name="qaseapp.ui.test.ProjectsPageTest"/>
-        </classes>
-    </test>
-    <test name="Test Plans Page Test">
-        <classes>
             <class name="qaseapp.ui.test.TestPlansPageTest"/>
-        </classes>
-    </test>
-    <test name="Test Runs Page Test">
-        <classes>
             <class name="qaseapp.ui.test.TestRunsPageTest"/>
         </classes>
     </test>
