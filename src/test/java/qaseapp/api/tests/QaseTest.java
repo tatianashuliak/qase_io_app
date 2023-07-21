@@ -13,13 +13,13 @@ import qaseapp.api.models.TestCase;
 import static java.net.HttpURLConnection.HTTP_OK;
 
 public class QaseTest {
-    @Test
+    @Test(priority = 2)
     public void checkIsProjectExistsTest() {
         int statusCode = new ProjectAdapter().getProjects().statusCode();
         Assert.assertEquals(statusCode, HTTP_OK);
     }
 
-    @Test
+    @Test(priority = 1)
     public void checkCreatingProjectTest() {
         Project project = Project.builder()
                 .title("AQA22")
@@ -29,7 +29,7 @@ public class QaseTest {
         Assert.assertTrue(codeOfProject.equalsIgnoreCase(project.getCode()));
     }
 
-    @Test
+    @Test(priority = 2)
     public void checkCreatingSuiteTest() {
         String projectCode = "AQA22";
         Suite suite = Suite.builder()
@@ -40,13 +40,13 @@ public class QaseTest {
         Assert.assertTrue(resultId != 0);
     }
 
-    @Test
-    public void CheckNumberOfAllCasesTest() {
+    @Test(priority = 3)
+    public void checkNumberOfAllCasesTest() {
         int statusCode = new CaseAdapter().getAllCases("AQA22").statusCode();
         Assert.assertEquals(statusCode, HTTP_OK);
     }
 
-    @Test
+    @Test(priority = 2)
     public void checkCreatingCaseTest() {
         TestCase testCase = TestCase.builder()
                 .title("Test case 1")
@@ -55,19 +55,19 @@ public class QaseTest {
        Assert.assertTrue(resultId != 0);
     }
 
-    @Test
+    @Test(priority = 3)
     public void checkIsASpecificCaseExistsTest() {
         int statusCode = new CaseAdapter().getASpecificCase("AQA22", 1).statusCode();
         Assert.assertEquals(statusCode, HTTP_OK);
     }
 
-    @Test
+    @Test(priority = 4)
     public void CheckDeletingTestCase() {
-        int idOfDeletedCase = new CaseAdapter().delete("AQA22", 4).body().path("result.id");
+        int idOfDeletedCase = new CaseAdapter().delete("AQA22", 1).body().path("result.id");
         Assert.assertTrue(idOfDeletedCase !=0);
     }
 
-    @Test
+    @Test(priority = 3)
     public void CheckNumberOfAllTestSuitesTest() {
         int statusCode = new SuiteAdapter().getAllSuites("AQA22").statusCode();
         Assert.assertEquals(statusCode, HTTP_OK);

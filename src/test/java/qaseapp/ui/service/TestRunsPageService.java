@@ -20,11 +20,12 @@ public class TestRunsPageService {
         return testRunsPage.isCompleteRunButtonDisplayed();
     }
 
-    public void editTestRun(TestRun testRun) {
+    public TestRunsPageService editTestRun(TestRun testRun) {
         testRunsPage.clickMenuLink()
                 .clickEditRunLink()
                 .editTestRunName(testRun.getTestRunName())
                 .clickUpdateTestRunButton();
+        return this;
     }
 
     public boolean isTestRunEdited() {

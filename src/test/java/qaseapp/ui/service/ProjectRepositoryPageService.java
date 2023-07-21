@@ -47,10 +47,11 @@ public class ProjectRepositoryPageService {
         return new ProjectsPageService();
     }
 
-    public void deleteTestCase() {
+    public ProjectRepositoryPageService deleteTestCase() {
         projectRepositoryPage.clickTestCaseLink()
                 .clickDeleteTestCaseButton()
                 .clickConfirmDeleteTestCaseButton();
+        return this;
     }
 
     public boolean isTestCaseDeleted() {

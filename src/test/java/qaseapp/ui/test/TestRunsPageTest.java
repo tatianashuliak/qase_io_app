@@ -25,7 +25,7 @@ public class TestRunsPageTest extends BaseTest {
 
 }
 
-    @Test
+    @Test(dependsOnMethods = {"qaseapp.ui.test.TestPlansPageTest.checkIsTestPlanCreated"})
     public void checkIsTestRunCreated() {
         User user = User.builder().email("tatjananikolaevich23041997@gmail.com").password("23041997nik").build();
         projectsPageService = loginPageService.login(user);
@@ -37,15 +37,14 @@ public class TestRunsPageTest extends BaseTest {
         Assert.assertTrue(isTestRunCreated);
     }
 
-    @Test
+    @Test(dependsOnMethods = {"checkIsTestRunCreated"})
     public void checkIsTestRunEdited() {
         User user = User.builder().email("tatjananikolaevich23041997@gmail.com").password("23041997nik").build();
         projectsPageService = loginPageService.login(user);
         TestRun testRun = TestRun.builder().testRunName("New Test Run").build();
-        projectsPageService.goToProjectRepositoryPage()
+        boolean isTestRunEdited = projectsPageService.goToProjectRepositoryPage()
                 .goToTestRunsPage()
-                .editTestRun(testRun);
-        boolean isTestRunEdited = testRunsPageService.isTestRunEdited();
+                .editTestRun(testRun).isTestRunEdited();
         Assert.assertTrue(isTestRunEdited);
     }
     }

@@ -8,6 +8,8 @@ import qaseapp.ui.model.User;
 import qaseapp.ui.service.LoginPageService;
 import qaseapp.ui.service.ProjectsPageService;
 
+import static org.testng.TestRunner.PriorityWeight.dependsOnMethods;
+
 
 public class CreateTestCasePageTest extends BaseTest {
     private ProjectsPageService projectsPageService;

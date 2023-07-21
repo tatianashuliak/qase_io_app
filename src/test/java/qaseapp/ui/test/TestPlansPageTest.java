@@ -37,7 +37,7 @@ public class TestPlansPageTest extends BaseTest {
         Assert.assertTrue(isTestPlanCreated);
     }
 
-    @Test
+    @Test(dependsOnMethods = {"checkIsTestPlanCreated"})
     public void checkIsTestPlanDeleted() {
         User user = User.builder().email("tatjananikolaevich23041997@gmail.com").password("23041997nik").build();
         projectsPageService = loginPageService.login(user);

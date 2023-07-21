@@ -23,7 +23,7 @@ public class ProjectsPageTest extends BaseTest {
     public void checkIsNewProjectCreatedTest() {
         User user = User.builder().email("tatjananikolaevich23041997@gmail.com").password("23041997nik").build();
        projectsPageService = loginPageService.login(user);
-        Project project = Project.builder().projectName("Test").projectCode("Test").build();
+        Project project = Project.builder().projectName("Test1").projectCode("Test1").build();
         ProjectRepositoryPageService projectRepositoryPageService = projectsPageService.createNewProject(project);
         boolean isNewProjectCreated = projectRepositoryPageService.isNewProjectCreated();
         Assert.assertTrue(isNewProjectCreated);

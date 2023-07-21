@@ -21,8 +21,11 @@ public class ProjectsPage extends Page {
     @FindBy(xpath = "//span[text()='Create project']")
     private WebElement createProjectButton;
 
-    @FindBy(xpath = "//a[contains(text(), 'Demo Project')]")
+    @FindBy(xpath = "//a[contains(text(), 'Test')]")
     private WebElement projectLink;
+
+    @FindBy(xpath = "//a[contains(text(), 'Test1')]")
+    private WebElement newProjectLink;
 
     public boolean isNameOfProjectsPageSectionDisplayed() {
         log.info("Search element of Projects page");
@@ -56,5 +59,10 @@ public class ProjectsPage extends Page {
     public void clickProjectLink() {
         log.info("Click project link");
         waitElementToBeClickable(projectLink).click();
+    }
+
+    public void clickNewProjectLink() {
+        log.info("Click new project link");
+        waitElementToBeClickable(newProjectLink).click();
     }
 }

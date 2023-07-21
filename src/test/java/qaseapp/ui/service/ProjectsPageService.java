@@ -22,4 +22,9 @@ public class ProjectsPageService {
         projectsPage.clickProjectLink();
         return new ProjectRepositoryPageService();
     }
+
+    public  ProjectRepositoryPageService goToNewProjectRepositoryPage() {
+        projectsPage.clickNewProjectLink();
+        return  new ProjectRepositoryPageService();
+    }
 }
