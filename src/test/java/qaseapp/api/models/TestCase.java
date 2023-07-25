@@ -6,7 +6,6 @@ import lombok.Data;
 @Data
 @Builder
 public class TestCase {
-
     private String title;
     private String description;
     private int severity;

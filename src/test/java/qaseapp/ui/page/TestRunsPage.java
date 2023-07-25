@@ -114,5 +114,4 @@ public class TestRunsPage extends Page {
         log.info("Search successful message of editing test run");
         return waitVisibilityOfElement(successfulEditedMessage).isDisplayed();
     }
-
 }

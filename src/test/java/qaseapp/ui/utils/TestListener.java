@@ -1,6 +1,7 @@
 package qaseapp.ui.utils;
 
 import io.qameta.allure.Attachment;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
@@ -9,18 +10,18 @@ import org.testng.ITestResult;
 import qaseapp.ui.driver.DriverSingleton;
 
 import java.util.concurrent.TimeUnit;
-
+@Log4j2
 public class TestListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult iTestResult) {
-        System.out.println(String.format(
+        log.info(String.format(
                 "======================================== STARTING TEST %s ========================================",
                 iTestResult.getName()));
     }
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-        System.out.println(String.format(
+        log.info(String.format(
                 "======================================== FINISHED TEST %s Duration: %ss ========================================",
                 iTestResult.getName(),
                 getExecutionTime(iTestResult)));
@@ -28,7 +29,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-        System.out.println(String.format(
+        log.info(String.format(
                 "======================================== FAILED TEST %s Duration: %ss ========================================", iTestResult.getName(),
                 getExecutionTime(iTestResult)));
         takeScreenshot();
@@ -36,7 +37,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
-        System.out.println(String.format("======================================== SKIPPING TEST %s ========================================",
+        log.info(String.format("======================================== SKIPPING TEST %s ========================================",
                 iTestResult.getName()));
     }
 

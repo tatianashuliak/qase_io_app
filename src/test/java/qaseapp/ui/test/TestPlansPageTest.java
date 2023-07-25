@@ -34,7 +34,7 @@ public class TestPlansPageTest extends BaseTest {
                 .goToTestPlansPage()
                 .createTestPlan(testPlan);
         boolean isTestPlanCreated = testPlansPageService.isTestPlanCreated();
-        Assert.assertTrue(isTestPlanCreated);
+        Assert.assertTrue(isTestPlanCreated, "Test plan wasn't created");
     }
 
     @Test(dependsOnMethods = {"checkIsTestPlanCreated"})
@@ -45,6 +45,6 @@ public class TestPlansPageTest extends BaseTest {
                 .goToTestPlansPage()
                 .deleteTestPlan();
         boolean isTestPlanDeleted = testPlansPageService.isTestPlanDeleted();
-        Assert.assertTrue(isTestPlanDeleted);
+        Assert.assertTrue(isTestPlanDeleted, "Test plan wasn't deleted");
     }
 }

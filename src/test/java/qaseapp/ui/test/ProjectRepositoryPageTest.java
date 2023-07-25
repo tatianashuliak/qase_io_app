@@ -43,7 +43,7 @@ public class ProjectRepositoryPageTest extends BaseTest {
         projectsPageService.goToNewProjectRepositoryPage()
                 .deleteProject();
         boolean isProjectDeleted = projectsPageService.isActualNameOfProjectsPageSectionDisplayed();
-        Assert.assertTrue(isProjectDeleted);
+        Assert.assertTrue(isProjectDeleted, "Project wasn't deleted");
     }
 
     @Test(dependsOnMethods = {"qaseapp.ui.test.CreateTestCasePageTest.checkIsTestCaseCreated"})
@@ -53,6 +53,6 @@ public class ProjectRepositoryPageTest extends BaseTest {
         boolean isTestCaseDeleted = projectsPageService.goToProjectRepositoryPage()
                 .deleteTestCase()
                 .isTestCaseDeleted();
-        Assert.assertTrue(isTestCaseDeleted);
+        Assert.assertTrue(isTestCaseDeleted, "Test case wasn't deleted");
     }
 }

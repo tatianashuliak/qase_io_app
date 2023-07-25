@@ -12,7 +12,6 @@ import qaseapp.ui.service.TestRunsPageService;
 import qaseapp.ui.utils.Retry;
 
 public class TestRunsPageTest extends BaseTest {
-
     private ProjectsPageService projectsPageService;
     private LoginPageService loginPageService;
     private TestRunsPageService testRunsPageService;
@@ -34,7 +33,7 @@ public class TestRunsPageTest extends BaseTest {
                 .goToTestRunsPage()
                 .createTestRun(testRun);
         boolean isTestRunCreated = testRunsPageService.isTestRunCreated();
-        Assert.assertTrue(isTestRunCreated);
+        Assert.assertTrue(isTestRunCreated, "Test run wasn't created");
     }
 
     @Test(dependsOnMethods = {"checkIsTestRunCreated"})
@@ -45,6 +44,6 @@ public class TestRunsPageTest extends BaseTest {
         boolean isTestRunEdited = projectsPageService.goToProjectRepositoryPage()
                 .goToTestRunsPage()
                 .editTestRun(testRun).isTestRunEdited();
-        Assert.assertTrue(isTestRunEdited);
+        Assert.assertTrue(isTestRunEdited, "Test run wasn't edited");
     }
     }

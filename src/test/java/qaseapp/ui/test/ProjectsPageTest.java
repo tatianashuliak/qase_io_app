@@ -26,6 +26,6 @@ public class ProjectsPageTest extends BaseTest {
         Project project = Project.builder().projectName("Test1").projectCode("Test1").build();
         ProjectRepositoryPageService projectRepositoryPageService = projectsPageService.createNewProject(project);
         boolean isNewProjectCreated = projectRepositoryPageService.isNewProjectCreated();
-        Assert.assertTrue(isNewProjectCreated);
+        Assert.assertTrue(isNewProjectCreated, "New project wasn't created");
     }
 }

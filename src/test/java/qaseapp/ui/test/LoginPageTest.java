@@ -17,7 +17,7 @@ public class LoginPageTest extends BaseTest{
     }
 
     @Test
-    public void loginTest() {
+    public void checkLoginTest() {
         User user = User.builder().email(System.getProperty("email")).password(System.getProperty("password")).build();
         ProjectsPageService projectsPageService = loginPageService.login(user);
         boolean isActualNameOfProjectsPageSectionDisplayed = projectsPageService.isActualNameOfProjectsPageSectionDisplayed();

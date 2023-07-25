@@ -21,5 +21,4 @@ public class CaseAdapter extends BaseAdapter{
     public Response delete (String codeOfProject, int idOfTestCase) {
         return delete(String.format(CASE_API_ENDPOINT, codeOfProject + "/" + idOfTestCase));
     }
-
 }

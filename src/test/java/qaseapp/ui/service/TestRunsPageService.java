@@ -1,12 +1,13 @@
 package qaseapp.ui.service;
 
+import io.qameta.allure.Step;
 import qaseapp.ui.model.TestRun;
 import qaseapp.ui.page.TestRunsPage;
 
 public class TestRunsPageService {
+    private TestRunsPage testRunsPage = new TestRunsPage();
 
-    TestRunsPage testRunsPage = new TestRunsPage();
-
+    @Step("User creates new test run")
     public void createTestRun(TestRun testRun) {
         testRunsPage.clickStartNewTestRunButton()
                 .fillInTestRunNameField(testRun.getTestRunName())
@@ -20,6 +21,7 @@ public class TestRunsPageService {
         return testRunsPage.isCompleteRunButtonDisplayed();
     }
 
+    @Step("User edits test run")
     public TestRunsPageService editTestRun(TestRun testRun) {
         testRunsPage.clickMenuLink()
                 .clickEditRunLink()
